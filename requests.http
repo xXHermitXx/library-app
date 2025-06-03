@@ -1,0 +1,32 @@
+### Könyv hozzáadása
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "1984",
+  "author": "George Orwell"
+}
+
+### Tag hozzáadása
+POST http://localhost:8080/api/members
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+
+### Kölcsönzés hozzáadása
+POST http://localhost:8080/loans
+Content-Type: application/json
+
+{
+  "book": {
+    "id": 1
+  },
+  "member": {
+    "id": 1
+  },
+  "loanDate": "2025-06-03",
+  "returnDate": "2025-06-10"
+}
