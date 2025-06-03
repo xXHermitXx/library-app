@@ -12,8 +12,8 @@ POST http://localhost:8080/api/members
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "email": "john@example.com"
+  "name": "valaki valakije",
+  "email": "valaki@example.com"
 }
 
 ### Kölcsönzés hozzáadása
