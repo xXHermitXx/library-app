@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Tagok</title></head>
+<body>
+<h1>Tagok</h1>
+<a href="/add-member">Új tag hozzáadása</a>
+<table border="1">
+    <tr>
+        <th>Név</th>
+        <th>Email</th>
+        <th>Műveletek</th>
+    </tr>
+    <tr th:each="member : ${members}">
+        <td th:text="${member.name}"></td>
+        <td th:text="${member.email}"></td>
+        <td>
+            <a th:href="@{'/edit-member/' + ${member.id}}">Szerkesztés</a> |
+            <a th:href="@{'/delete-member/' + ${member.id}}" onclick="return confirm('Biztosan törlöd?')">Törlés</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

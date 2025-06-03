@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Kölcsönzések</title></head>
+<body>
+<h1>Kölcsönzések</h1>
+<a href="/add-loan">Új kölcsönzés hozzáadása</a>
+<table border="1">
+    <tr>
+        <th>Tag</th>
+        <th>Könyv</th>
+        <th>Kezdés</th>
+        <th>Lejárat</th>
+        <th>Műveletek</th>
+    </tr>
+    <tr th:each="loan : ${loans}">
+        <td th:text="${loan.member.name}"></td>
+        <td th:text="${loan.book.title}"></td>
+        <td th:text="${loan.startDate}"></td>
+        <td th:text="${loan.dueDate}"></td>
+        <td>
+            <a th:href="@{'/edit-loan/' + ${loan.id}}">Szerkesztés</a> |
+            <a th:href="@{'/delete-loan/' + ${loan.id}}" onclick="return confirm('Biztosan törlöd?')">Törlés</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

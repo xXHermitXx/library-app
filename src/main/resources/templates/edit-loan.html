@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Kölcsönzés szerkesztése</title></head>
+<body>
+<h1>Kölcsönzés szerkesztése</h1>
+<form th:action="@{'/edit-loan/' + ${loan.id}}" th:object="${loan}" method="post">
+    <label>Tag:
+        <select th:field="*{member}" required>
+            <option th:each="member : ${members}" th:value="${member}" th:text="${member.name}"
+                    th:selected="${member.id} == ${loan.member.id}"></option>
+        </select>
+    </label><br>
+    <label>Könyv:
+        <select th:field="*{book}" required>
+            <option th:each="book : ${books}" th:value="${book}" th:text="${book.title}"
+                    th:selected="${book.id} == ${loan.book.id}"></option>
+        </select>
+    </label><br>
+    <label>Kezdés: <input type="text" th:field="*{startDate}" required/></label><br>
+    <label>Lejárat: <input type="text" th:field="*{dueDate}" required/></label><br><br>
+    <button type="submit">Mentés</button>
+</form>
+<a href="/loans-page">Vissza</a>
+</body>
+</html>

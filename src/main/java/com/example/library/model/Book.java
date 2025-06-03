@@ -50,6 +50,10 @@ public class Book {
         return author;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setAuthor(String author) {
         this.author = author;
     }

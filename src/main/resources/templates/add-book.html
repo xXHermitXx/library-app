@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Új könyv hozzáadása</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+<h1>Új könyv hozzáadása</h1>
+<form th:action="@{/add-book}" th:object="${book}" method="post">
+  <label>Cím: <input type="text" th:field="*{title}" required/></label><br>
+  <label>Szerző: <input type="text" th:field="*{author}" required/></label><br>
+  <label>ISBN: <input type="text" th:field="*{isbn}" required/></label><br>
+  <label>Megjelenés dátuma (YYYY-MM-DD): <input type="text" th:field="*{publishedDate}" required/></label><br>
+  <label>Elérhető:
+    <select th:field="*{available}">
+      <option value="true">Igen</option>
+      <option value="false">Nem</option>
+    </select>
+  </label><br><br>
+  <button type="submit">Mentés</button>
+</form>
+</body>
+</html>

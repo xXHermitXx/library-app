@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Új tag hozzáadása</title>
+</head>
+<body>
+<h1>Új tag hozzáadása</h1>
+
+<form th:action="@{/add-member}" th:object="${member}" method="post">
+    <label>Név: <input type="text" th:field="*{name}" required/></label><br>
+    <label>Email: <input type="email" th:field="*{email}" required/></label><br><br>
+    <button type="submit">Mentés</button>
+</form>
+
+<a href="/members-page">Vissza a listához</a>
+</body>
+</html>
